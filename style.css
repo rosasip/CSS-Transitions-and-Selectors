@@ -1,0 +1,284 @@
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+
+/*gives font */
+body {
+    font-family: Arial, sans-serif; 
+}
+
+/* Jump Menu - Left side styling, always shown */
+#jumpMenu {  
+    position: fixed;
+    width: 170px; 
+    height: 100vh;
+    text-align: center; 
+    background-color: #f7ab06; 
+    padding: 30px 10px ;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 170px; /* Snaps exactly to the edge of the orange sidebar */
+    right: 0;
+    background-color: #ff0000; 
+    z-index: 5;
+    text-align: center;
+}
+
+header p{  /* The my blog section */ 
+    text-align: center; 
+    color: #100000;
+    font-size: 20px;
+    margin-top: 20px;  
+    margin-bottom: 20px; 
+}
+
+/* Styles "Recent Journal Articles" */
+h1{
+    text-align: center;
+    margin:0px 0 30px 0;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 0px;
+}
+
+/* Keep my texts in the middle */ 
+main { 
+    margin-left: 170px; /* Changed from 200px to match sidebar */
+    margin-top: 130px; 
+    padding: 20px;
+}
+
+/* Keep my texts next to each other */ 
+#container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 25px;
+    justify-content: flex-start; 
+} 
+/*  Article styling - gives squared look */
+article {
+    width: 300px; 
+    background-color: #fff;
+    padding: 10px;
+}
+/* Article title styling - Controls the size */
+article h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Article paragraph styling - Controls the size and spacing of the text */
+
+article p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+/* Hover effect for the entire article */
+article:hover {
+    color: #000; /* Darker text */
+    transform: scale(1.05); /* Article expands */
+}
+
+/* Styles the first letter of each paragraph within an article */
+article p::first-letter {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 36px;
+}
+/* grey-ish text */
+article {
+    color: #999; 
+    transition: color 2s, transform 2s; /* Transition over 2 seconds */
+}
+
+#menuItems {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 170px;
+    height: 100vh;
+    background-color: #f7ab06;
+    padding-top: 20px;
+    z-index: 10;
+}
+
+#menuItems button {
+    display: block;        /* Ensures they take up their own row */
+    width: 100%;
+    position: static;      /* Removes any weird floating behavior */
+    flex-shrink: 0;        /* Prevents buttons from squishing */
+}
+
+#jumpMenu {
+    position: static !important; /* Forces it to stay in line with buttons */
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    display: block; 
+}
+
+#jumpMenu li {
+    padding: 0;
+}
+
+#jumpMenu a {
+    display: block; /* Makes the entire Aticle 1-10 area clickable and visible */
+    padding: 8px 15px;
+    color: #0f24de; /* Blue text "Article 1-10"*/
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+/* Hide it */
+#jumpMenu {
+    display: none;
+}
+
+/* Reveal when hovering the button OR the list itself */
+#recentArticles:hover + #jumpMenu,
+#jumpMenu:hover {
+    display: block;
+}
+
+#jumpMenu a:hover {
+    background-color: #e69a00;
+    color: white;
+}
+
+/* Remove border from last item */
+#jumpMenu li:last-child a {
+    border-bottom: none;
+}
+
+/* The 4 blue buttons below the article links */
+#menuItems button {
+    background-color: #0022ff;
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 0;
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+/* First blue button */
+#recentArticles {
+    margin-top: 30px; /* Space after article links */
+}
+
+/* Hover effect for blue buttons */
+#menuItems button:hover {
+    background-color: #0056b3;
+}
+
+/* Services button */
+#menuItems button[href="services.html"] {
+    margin-top: 5px;
+}
+
+/* Mission button */
+#menuItems button[href="mission.html"] {
+    margin-top: 5px;
+}
+
+/* About Us button */
+#menuItems button[href="about.html"] {
+    margin-top: 5px;
+}
+
+/* 1. Target only the Read More links using an attribute selector */
+article a[href*="google.com"] {
+    text-decoration: none;      
+    color: #0000EE;            
+    font-weight: bold;        
+    display: inline-flex;      
+    align-items: center;
+}
+
+article a[href*="google.com"]::after {
+    content: url('/img/arrow.png');  */
+    margin-left: 8px;          
+    display: inline-block;
+    transform: scale(0.8);     
+}
+
+/* 3. Hover effect for the link */
+article a[href*="google.com"]:hover {
+    text-decoration: underline; 
+    color: #ff0000;            
+}
+
+/* 4. Thank You Block - Bottom-right, always shown */
+#thanks {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #aaddff; /* Light blue box */
+    color: #000;
+    padding: 15px 30px;
+    font-size: 20px;
+    border: 1px solid #999;
+    z-index: 100;
+}
+
+/* Contact Us Footer Styling */
+footer {
+    background-color: #f39abd; /* Light pink background */
+    padding: 30px 10px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0f0101;
+    margin-bottom: 25px;
+}
+
+/* Contact info layout */
+address div {
+    display: grid;
+    grid-template-columns: repeat(2, auto); /* 2 columns: labels and values */
+    gap: 15px 30px; /* 15px between rows, 30px between columns */
+    max-width: 600px;
+    margin: 0 auto;
+    justify-content: center;
+    text-align: left;
+}
+
+  /* Label styling (Phone:, Email:, etc.) */
+address div span:nth-child(odd) {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #920909;
+    text-align: right;
+}
+
+/* Value styling (phone number, email link, etc.) */
+address div span:nth-child(even) {
+    color: #0c0000;
+}
+
+/* Email link styling */
+footer a {
+    color: rgb(25, 60, 232); 
+    text-decoration: none;
+}
+
+
+
